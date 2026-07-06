@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Administración · Zanate Tours</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body style="background:var(--azul-050)">
+<header class="header">
+  <div class="contenedor header__inner">
+    <a class="marca" href="index.html">
+      <img src="assets/logo.png" alt="Logotipo Zanate">
+      <span class="marca__nombre">ZANATE<span class="marca__sub">Panel de administración</span></span>
+    </a>
+    <nav class="nav"><a href="index.html">← Volver al sitio</a></nav>
+  </div>
+</header>
+
+<main class="seccion" style="padding-top:2.5rem">
+  <div class="contenedor">
+    <h1 style="font-size:1.9rem; margin-bottom:.5rem">Panel de administración</h1>
+    <p class="lead" style="margin-bottom:2rem">Solicitudes de reserva y mensajes de contacto recibidos en este dispositivo.
+      <em style="font-size:.85rem; display:block; margin-top:.3rem">Demo local: en producción, conectar a un backend (ver README).</em></p>
+
+    <div class="grid grid--4" style="margin-bottom:2.5rem" id="tarjetas-kpi"></div>
+
+    <div style="display:flex; gap:.8rem; margin-bottom:1.2rem; flex-wrap:wrap">
+      <button class="btn btn--primario btn--sm" data-vista="reservas">📋 Reservas</button>
+      <button class="btn btn--contorno btn--sm" data-vista="contactos">✉️ Mensajes</button>
+      <button class="btn btn--contorno btn--sm" id="btn-exportar">⬇️ Exportar JSON</button>
+      <button class="btn btn--contorno btn--sm" id="btn-limpiar" style="color:#B3261E; border-color:#B3261E">🗑 Vaciar datos</button>
+    </div>
+
+    <div style="overflow-x:auto">
+      <table class="tabla" id="tabla">
+        <thead></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p id="vacio" style="margin-top:1.5rem; color:var(--gris-500)" hidden>No hay registros todavía. Envía una reserva o mensaje de prueba desde el sitio.</p>
+  </div>
+</main>
+
+<script src="js/data.js"></script>
+<script>
+(function () {
+  const COLS = {
+    reservas: ["_fecha", "nombre", "correo", "fecha", "personas", "idioma", "duracion", "intereses", "total_estimado"],
+    contactos: ["_fecha", "nombre", "correo", "asunto", "mensaje"]
+  };
+  const TITULOS = {
+    _fecha: "Recibido", nombre: "Nombre", correo: "Correo", fecha: "Fecha tour", personas: "Pax",
+    idioma: "Idioma", duracion: "Duración", intereses: "Intereses", total_estimado: "Total est.",
+    asunto: "Asunto", mensaje: "Mensaje"
+  };
+  let vista = "reservas";
+
+  function leer(c) { return JSON.parse(localStorage.getItem("zanate_" + c) || "[]"); }
+
+  function pintarKPIs() {
+    const r = leer("reservas"), c = leer("contactos");
+    const pax = r.reduce((s, x) => s + (parseInt(x.personas, 10) || 0), 0);
+    const kpis = [
+      ["Reservas recibidas", r.length],
+      ["Mensajes de contacto", c.length],
+      ["Viajeros potenciales", pax],
+      ["Última actividad", (r.concat(c).slice(-1)[0] || {})._fecha ? new Date(r.concat(c).slice(-1)[0]._fecha).toLocaleDateString("es-MX") : "—"]
+    ];
+    document.getElementById("tarjetas-kpi").innerHTML = kpis.map(k =>
+      '<div class="tarjeta" style="padding:1.4rem"><div style="font-size:.8rem; color:var(--gris-500); text-transform:uppercase; letter-spacing:.08em">' + k[0] +
+      '</div><div style="font-family:var(--fuente-titulo); font-size:2rem; color:var(--azul-900)">' + k[1] + "</div></div>"
+    ).join("");
+  }
+
+  function pintarTabla() {
+    const datos = leer(vista);
+    const cols = COLS[vista];
+    document.querySelector("#tabla thead").innerHTML =
+      "<tr>" + cols.map(c => "<th>" + TITULOS[c] + "</th>").join("") + "</tr>";
+    document.querySelector("#tabla tbody").innerHTML = datos.map(d =>
+      "<tr>" + cols.map(c => "<td>" + (c === "_fecha" && d[c] ? new Date(d[c]).toLocaleString("es-MX") : (d[c] || "—")) + "</td>").join("") + "</tr>"
+    ).join("");
+    document.getElementById("vacio").hidden = datos.length > 0;
+    document.getElementById("tabla").style.display = datos.length ? "table" : "none";
+  }
+
+  document.querySelectorAll("[data-vista]").forEach(b => b.addEventListener("click", () => {
+    vista = b.dataset.vista;
+    document.querySelectorAll("[data-vista]").forEach(x => x.className = "btn btn--contorno btn--sm");
+    b.className = "btn btn--primario btn--sm";
+    pintarTabla();
+  }));
+
+  document.getElementById("btn-exportar").addEventListener("click", () => {
+    const blob = new Blob([JSON.stringify({ reservas: leer("reservas"), contactos: leer("contactos") }, null, 2)], { type: "application/json" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "zanate-datos-" + new Date().toISOString().split("T")[0] + ".json";
+    a.click(); URL.revokeObjectURL(a.href);
+  });
+
+  document.getElementById("btn-limpiar").addEventListener("click", () => {
+    if (confirm("¿Eliminar todas las reservas y mensajes guardados en este navegador?")) {
+      localStorage.removeItem("zanate_reservas");
+      localStorage.removeItem("zanate_contactos");
+      pintarKPIs(); pintarTabla();
+    }
+  });
+
+  pintarKPIs(); pintarTabla();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa Interactivo de Ciudad de México · Sitios Imperdibles · Zanate Tours</title>
+  <meta name="description" content="Explora el mapa interactivo de CDMX: Zócalo, Templo Mayor, Bellas Artes, Chapultepec, Antropología, Xochimilco, Coyoacán y más. Arma tu itinerario personalizado.">
+  <link rel="canonical" href="https://www.zanatetours.mx/mapa.html">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+<header class="header">
+  <div class="contenedor header__inner">
+    <a class="marca" href="index.html" aria-label="Zanate Tours — Inicio">
+      <img src="assets/logo.png" alt="Logotipo Zanate">
+      <span class="marca__nombre">ZANATE<span class="marca__sub">Experiencias CDMX</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="nav" aria-label="Navegación principal">
+      <a href="index.html" data-i18n="nav.inicio">Inicio</a>
+      <a href="nosotros.html" data-i18n="nav.nosotros">Nosotros</a>
+      <a href="experiencias.html" data-i18n="nav.experiencias">Experiencias</a>
+      <a href="mapa.html" aria-current="page" data-i18n="nav.mapa">Mapa</a>
+      <a href="galeria.html" data-i18n="nav.galeria">Galería</a>
+      <a href="blog.html" data-i18n="nav.blog">Blog</a>
+      <a href="contacto.html" data-i18n="nav.contacto">Contacto</a>
+      <button class="lang-toggle" aria-label="Cambiar idioma / Switch language">EN 🇺🇸</button>
+      <a class="btn btn--primario btn--sm" href="reservaciones.html" data-i18n="nav.reservar">Reservar</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+  <section class="seccion" style="padding-top:3rem">
+    <div class="contenedor">
+      <div class="centrado" style="margin-bottom:2.5rem">
+        <span class="kicker">Mapa interactivo</span>
+        <h1 style="font-size:clamp(1.9rem,4vw,2.8rem)">Los imperdibles de la Ciudad de México</h1>
+        <p class="lead">Explora los sitios, conoce horarios y recomendaciones, y añade tus favoritos a un itinerario personalizado. Nosotros nos encargamos del resto.</p>
+      </div>
+
+      <div class="mapa-layout">
+        <div id="mapa" role="application" aria-label="Mapa interactivo de sitios turísticos de Ciudad de México"></div>
+        <aside>
+          <h2 style="font-size:1.2rem; margin-bottom:1rem">Sitios emblemáticos <span style="font-weight:400; color:var(--gris-500); font-size:.85rem">(clic para ubicar)</span></h2>
+          <div class="lista-sitios" id="lista-sitios"></div>
+        </aside>
+      </div>
+
+      <p class="centrado" style="margin-top:2.5rem; color:var(--gris-500); font-size:.9rem">
+        ¿Prefieres verlo en tu celular? Abre cualquier sitio en
+        <a id="link-gmaps" href="https://www.google.com/maps/search/atracciones+turisticas+ciudad+de+mexico" target="_blank" rel="noopener"><strong>Google Maps</strong></a>
+        o pídenos la ruta completa por <a href="https://wa.me/525500000000" target="_blank" rel="noopener"><strong>WhatsApp</strong></a>.
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="contenedor">
+    <div class="footer__grid">
+      <div>
+        <a class="marca" href="index.html"><img src="assets/logo.png" alt="" width="44" height="48"><span class="marca__nombre">ZANATE<span class="marca__sub">Experiencias CDMX</span></span></a>
+        <p style="margin-top:1rem">Turismo personalizado, seguro y memorable en la Ciudad de México.</p>
+      </div>
+      <div><h4>Explora</h4><a href="experiencias.html">Experiencias</a><a href="mapa.html">Mapa interactivo</a><a href="galeria.html">Galería</a><a href="blog.html">Blog</a></div>
+      <div><h4>Empresa</h4><a href="nosotros.html">Nosotros</a><a href="reservaciones.html">Reservaciones</a><a href="contacto.html">Contacto</a></div>
+      <div><h4>Contacto</h4><a href="https://wa.me/525500000000">WhatsApp: +52 55 0000 0000</a><a href="mailto:hola@zanatetours.mx">hola@zanatetours.mx</a></div>
+    </div>
+    <div class="footer__legal"><span>© <span data-anio>2026</span> Zanate Tours CDMX. <span data-i18n="footer.derechos">Todos los derechos reservados.</span></span></div>
+  </div>
+</footer>
+
+<a class="wa-boton" href="https://wa.me/525500000000" aria-label="Escríbenos por WhatsApp" target="_blank" rel="noopener">🟢</a>
+<div class="itinerario-barra" role="status"><span>🗺️ <strong data-contador>0</strong> sitios en tu itinerario</span><a class="btn btn--oro" href="reservaciones.html">Continuar</a></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+(function () {
+  const mapa = L.map("mapa", { scrollWheelZoom: false }).setView([19.39, -99.14], 11);
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 18,
+    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(mapa);
+
+  const icono = L.divIcon({
+    className: "",
+    html: '<div style="width:34px;height:34px;background:#16305F;border:3px solid #C9A227;border-radius:50% 50% 50% 0;transform:rotate(-45deg);box-shadow:0 3px 8px rgba(0,0,0,.35)"></div>',
+    iconSize: [34, 34], iconAnchor: [17, 30], popupAnchor: [0, -28]
+  });
+
+  function estrellas(n) { return "★".repeat(n) + "☆".repeat(5 - n); }
+  function estaEnItinerario(id) { return ZANATE_ITINERARIO.obtener().includes(id); }
+
+  function htmlPopup(s) {
+    const dentro = estaEnItinerario(s.id);
+    return '<div class="popup-sitio">' +
+      '<img src="' + s.img + '" alt="' + s.nombre + '">' +
+      "<h4>" + s.nombre + "</h4>" +
+      "<p>" + s.desc + "</p>" +
+      '<div class="datos">🕒 ' + s.horario + '<br><span class="popularidad" title="Popularidad">' + estrellas(s.popularidad) + "</span></div>" +
+      '<p style="font-size:.75rem"><strong>💡 Recomendación:</strong> ' + s.tip + "</p>" +
+      '<button class="btn ' + (dentro ? "btn--contorno" : "btn--primario") + ' btn--sm" data-agregar="' + s.id + '" style="width:100%;justify-content:center">' +
+      (dentro ? "✓ En tu itinerario — quitar" : "＋ Añadir al itinerario") + "</button>" +
+      '<a href="https://www.google.com/maps/search/?api=1&query=' + s.coords[0] + "," + s.coords[1] +
+      '" target="_blank" rel="noopener" style="display:block;text-align:center;font-size:.75rem;margin-top:.5rem">Abrir en Google Maps ↗</a></div>';
+  }
+
+  const marcadores = {};
+  ZANATE_SITIOS.forEach(function (s) {
+    const m = L.marker(s.coords, { icon: icono, alt: s.nombre }).addTo(mapa);
+    m.bindPopup(function () { return htmlPopup(s); }, { maxWidth: 270 });
+    marcadores[s.id] = m;
+  });
+
+  // Botón "añadir al itinerario" dentro de popups (delegación)
+  document.getElementById("mapa").addEventListener("click", function (e) {
+    const btn = e.target.closest("[data-agregar]");
+    if (!btn) return;
+    const id = btn.dataset.agregar;
+    ZANATE_ITINERARIO.alternar(id);
+    marcadores[id].closePopup();
+    marcadores[id].openPopup(); // repinta con el nuevo estado
+  });
+
+  // Lista lateral
+  const lista = document.getElementById("lista-sitios");
+  ZANATE_SITIOS.forEach(function (s) {
+    const b = document.createElement("button");
+    b.className = "sitio-item"; b.type = "button";
+    b.innerHTML = '<img src="' + s.img + '" alt="" loading="lazy">' +
+      "<div><strong>" + s.nombre + "</strong><span>" + estrellas(s.popularidad) + " · " + s.horario.split("·")[0] + "</span></div>";
+    b.addEventListener("click", function () {
+      document.querySelectorAll(".sitio-item").forEach(x => x.classList.remove("activo"));
+      b.classList.add("activo");
+      mapa.flyTo(s.coords, 15, { duration: 0.8 });
+      marcadores[s.id].openPopup();
+    });
+    lista.appendChild(b);
+  });
+})();
+</script>
+</body>
+</html>

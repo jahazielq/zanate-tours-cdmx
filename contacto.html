@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto · Zanate Tours CDMX — WhatsApp, correo y ubicación</title>
+  <meta name="description" content="Contáctanos por WhatsApp, correo o redes sociales. Oficina en Paseo de la Reforma, Ciudad de México. Respuesta en menos de 12 horas.">
+  <link rel="canonical" href="https://www.zanatetours.mx/contacto.html">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+<header class="header">
+  <div class="contenedor header__inner">
+    <a class="marca" href="index.html" aria-label="Zanate Tours — Inicio">
+      <img src="assets/logo.png" alt="Logotipo Zanate">
+      <span class="marca__nombre">ZANATE<span class="marca__sub">Experiencias CDMX</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="nav" aria-label="Navegación principal">
+      <a href="index.html" data-i18n="nav.inicio">Inicio</a>
+      <a href="nosotros.html" data-i18n="nav.nosotros">Nosotros</a>
+      <a href="experiencias.html" data-i18n="nav.experiencias">Experiencias</a>
+      <a href="mapa.html" data-i18n="nav.mapa">Mapa</a>
+      <a href="galeria.html" data-i18n="nav.galeria">Galería</a>
+      <a href="blog.html" data-i18n="nav.blog">Blog</a>
+      <a href="contacto.html" aria-current="page" data-i18n="nav.contacto">Contacto</a>
+      <button class="lang-toggle" aria-label="Cambiar idioma / Switch language">EN 🇺🇸</button>
+      <a class="btn btn--primario btn--sm" href="reservaciones.html" data-i18n="nav.reservar">Reservar</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+  <section class="seccion" style="padding-top:3rem">
+    <div class="contenedor">
+      <div class="centrado" style="margin-bottom:2.5rem">
+        <span class="kicker">Contacto</span>
+        <h1 style="font-size:clamp(1.9rem,4vw,2.8rem)">Hablemos de tu próximo viaje</h1>
+        <p class="lead">Respondemos en menos de 12 horas, todos los días.</p>
+      </div>
+
+      <div class="grid grid--2" style="gap:2.5rem; align-items:start">
+        <form class="form" id="form-contacto" novalidate>
+          <div class="campo">
+            <label for="nombre">Nombre *</label>
+            <input type="text" id="nombre" name="nombre" required autocomplete="name">
+          </div>
+          <div class="campo">
+            <label for="correo">Correo electrónico *</label>
+            <input type="email" id="correo" name="correo" required autocomplete="email">
+          </div>
+          <div class="campo">
+            <label for="asunto">Asunto</label>
+            <select id="asunto" name="asunto">
+              <option>Información general</option>
+              <option>Cotización de experiencia</option>
+              <option>Grupos y empresas</option>
+              <option>Prensa y alianzas</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="mensaje">Mensaje *</label>
+            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn--primario">Enviar mensaje</button>
+          <div id="confirmacion" hidden></div>
+        </form>
+
+        <div>
+          <div class="tarjeta" style="padding:1.8rem; margin-bottom:1.5rem">
+            <h3 style="margin-bottom:1rem">Canales directos</h3>
+            <p style="margin-bottom:.7rem">💬 <a href="https://wa.me/525500000000" target="_blank" rel="noopener"><strong>WhatsApp Business:</strong> +52 55 0000 0000</a></p>
+            <p style="margin-bottom:.7rem">✉️ <a href="mailto:hola@zanatetours.mx"><strong>hola@zanatetours.mx</strong></a></p>
+            <p style="margin-bottom:.7rem">📍 Av. Paseo de la Reforma 222, Juárez, 06600, CDMX</p>
+            <p style="margin-bottom:1rem">🕒 Lun–Dom · 8:00–21:00 (CDMX)</p>
+            <div class="redes" style="--r:#16305F">
+              <a href="#" aria-label="Instagram" style="border-color:var(--gris-200); color:var(--azul)">📷</a>
+              <a href="#" aria-label="Facebook" style="border-color:var(--gris-200); color:var(--azul)">ⓕ</a>
+              <a href="#" aria-label="TikTok" style="border-color:var(--gris-200); color:var(--azul)">♪</a>
+              <a href="#" aria-label="YouTube" style="border-color:var(--gris-200); color:var(--azul)">▶</a>
+            </div>
+          </div>
+          <div id="mapa" style="height:320px" role="application" aria-label="Ubicación de la oficina de Zanate Tours"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="contenedor">
+    <div class="footer__grid">
+      <div>
+        <a class="marca" href="index.html"><img src="assets/logo.png" alt="" width="44" height="48"><span class="marca__nombre">ZANATE<span class="marca__sub">Experiencias CDMX</span></span></a>
+        <p style="margin-top:1rem">Turismo personalizado, seguro y memorable en la Ciudad de México.</p>
+      </div>
+      <div><h4>Explora</h4><a href="experiencias.html">Experiencias</a><a href="mapa.html">Mapa interactivo</a><a href="galeria.html">Galería</a><a href="blog.html">Blog</a></div>
+      <div><h4>Empresa</h4><a href="nosotros.html">Nosotros</a><a href="reservaciones.html">Reservaciones</a><a href="contacto.html">Contacto</a></div>
+      <div><h4>Contacto</h4><a href="https://wa.me/525500000000">WhatsApp: +52 55 0000 0000</a><a href="mailto:hola@zanatetours.mx">hola@zanatetours.mx</a></div>
+    </div>
+    <div class="footer__legal"><span>© <span data-anio>2026</span> Zanate Tours CDMX. <span data-i18n="footer.derechos">Todos los derechos reservados.</span></span></div>
+  </div>
+</footer>
+
+<a class="wa-boton" href="https://wa.me/525500000000" aria-label="Escríbenos por WhatsApp" target="_blank" rel="noopener">🟢</a>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+(function () {
+  const OFICINA = [19.4284, -99.1622];
+  const mapa = L.map("mapa", { scrollWheelZoom: false }).setView(OFICINA, 15);
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 18, attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(mapa);
+  L.marker(OFICINA).addTo(mapa).bindPopup("<strong>Zanate Tours CDMX</strong><br>Av. Paseo de la Reforma 222").openPopup();
+
+  document.getElementById("form-contacto").addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!this.reportValidity()) return;
+    ZANATE_GUARDAR("contactos", Object.fromEntries(new FormData(this).entries()));
+    const c = document.getElementById("confirmacion");
+    c.hidden = false;
+    c.innerHTML = '<div class="aviso-ok">✅ <strong>Mensaje enviado.</strong> Te responderemos en menos de 12 horas.</div>';
+    this.reset();
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservaciones · Cotiza tu Tour Privado en CDMX · Zanate Tours</title>
+  <meta name="description" content="Reserva tu experiencia personalizada en Ciudad de México: elige fecha, personas, idioma e intereses. Calculadora de costos en tiempo real y confirmación en menos de 12 horas.">
+  <link rel="canonical" href="https://www.zanatetours.mx/reservaciones.html">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+<header class="header">
+  <div class="contenedor header__inner">
+    <a class="marca" href="index.html" aria-label="Zanate Tours — Inicio">
+      <img src="assets/logo.png" alt="Logotipo Zanate">
+      <span class="marca__nombre">ZANATE<span class="marca__sub">Experiencias CDMX</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="nav" aria-label="Navegación principal">
+      <a href="index.html" data-i18n="nav.inicio">Inicio</a>
+      <a href="nosotros.html" data-i18n="nav.nosotros">Nosotros</a>
+      <a href="experiencias.html" data-i18n="nav.experiencias">Experiencias</a>
+      <a href="mapa.html" data-i18n="nav.mapa">Mapa</a>
+      <a href="galeria.html" data-i18n="nav.galeria">Galería</a>
+      <a href="blog.html" data-i18n="nav.blog">Blog</a>
+      <a href="contacto.html" data-i18n="nav.contacto">Contacto</a>
+      <button class="lang-toggle" aria-label="Cambiar idioma / Switch language">EN 🇺🇸</button>
+      <a class="btn btn--primario btn--sm" href="reservaciones.html" aria-current="page" data-i18n="nav.reservar">Reservar</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+  <section class="seccion" style="padding-top:3rem">
+    <div class="contenedor">
+      <div class="centrado" style="margin-bottom:2.5rem">
+        <span class="kicker">Reservaciones</span>
+        <h1 style="font-size:clamp(1.9rem,4vw,2.8rem)">Diseñemos tu experiencia</h1>
+        <p class="lead">Completa el formulario y recibe tu itinerario propuesto y cotización final por WhatsApp o correo en menos de 12 horas. Sin anticipos hasta confirmar.</p>
+      </div>
+
+      <div class="grid" style="grid-template-columns: 1.5fr 1fr; gap:2.5rem; align-items:start">
+        <form class="form form--2col" id="form-reserva" novalidate>
+          <div class="campo">
+            <label for="nombre">Nombre completo *</label>
+            <input type="text" id="nombre" name="nombre" required autocomplete="name">
+          </div>
+          <div class="campo">
+            <label for="correo">Correo electrónico *</label>
+            <input type="email" id="correo" name="correo" required autocomplete="email">
+          </div>
+          <div class="campo">
+            <label for="whatsapp">WhatsApp</label>
+            <input type="tel" id="whatsapp" name="whatsapp" placeholder="+52 ..." autocomplete="tel">
+          </div>
+          <div class="campo">
+            <label for="fecha">Fecha del recorrido *</label>
+            <input type="date" id="fecha" name="fecha" required>
+          </div>
+          <div class="campo">
+            <label for="personas">Número de personas *</label>
+            <select id="personas" name="personas" required>
+              <option value="1">1 persona</option>
+              <option value="2" selected>2 personas</option>
+              <option value="3">3 personas</option>
+              <option value="4">4 personas</option>
+              <option value="5">5 personas</option>
+              <option value="6">6 personas</option>
+              <option value="8">7–8 personas</option>
+              <option value="10">9–10 personas</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="idioma">Idioma del recorrido *</label>
+            <select id="idioma" name="idioma" required>
+              <option value="es">Español</option>
+              <option value="en">English</option>
+              <option value="ambos">Bilingüe / Bilingual</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="duracion">Duración *</label>
+            <select id="duracion" name="duracion" required>
+              <option value="medio">Medio día (4–5 h)</option>
+              <option value="completo" selected>Día completo (7–8 h)</option>
+              <option value="multi">Varios días (cotización especial)</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="experiencia">Experiencia base</label>
+            <select id="experiencia" name="experiencia">
+              <option value="">A la medida (desde cero)</option>
+            </select>
+          </div>
+          <div class="campo span-2">
+            <label>Intereses del visitante (elige todos los que apliquen)</label>
+            <div class="checks" id="intereses">
+              <label><input type="checkbox" name="interes" value="historia"> 🏛️ Historia</label>
+              <label><input type="checkbox" name="interes" value="arte"> 🎨 Arte y museos</label>
+              <label><input type="checkbox" name="interes" value="gastronomia"> 🌮 Gastronomía</label>
+              <label><input type="checkbox" name="interes" value="naturaleza"> 🌿 Naturaleza</label>
+              <label><input type="checkbox" name="interes" value="arquitectura"> 🏙️ Arquitectura</label>
+              <label><input type="checkbox" name="interes" value="tradiciones"> 🎭 Tradiciones</label>
+              <label><input type="checkbox" name="interes" value="fotografia"> 📸 Fotografía</label>
+              <label><input type="checkbox" name="interes" value="academico"> 🎓 Académico</label>
+            </div>
+          </div>
+          <div class="campo span-2">
+            <label>Extras opcionales</label>
+            <div class="checks">
+              <label><input type="checkbox" class="extra" value="foto-extendida" data-precio="1800"> 📷 Sesión fotográfica extendida (+$1,800)</label>
+              <label><input type="checkbox" class="extra" value="comida-gourmet" data-precio="950"> 🍽️ Comida en restaurante de autor (+$950 p/p)</label>
+              <label><input type="checkbox" class="extra" value="accesos" data-precio="450"> 🎟️ Accesos y boletos gestionados (+$450 p/p)</label>
+            </div>
+          </div>
+          <div class="campo span-2">
+            <label for="solicitudes">Solicitudes especiales</label>
+            <textarea id="solicitudes" name="solicitudes" rows="3" placeholder="Accesibilidad, alergias, celebraciones, ritmo del recorrido…"></textarea>
+          </div>
+          <div class="span-2" id="zona-itinerario" hidden>
+            <div class="aviso-ok" style="background:var(--azul-050); border-color:var(--azul-100); color:var(--gris-700)">
+              <strong style="color:var(--azul)">🗺️ Sitios de tu itinerario del mapa:</strong>
+              <span id="sitios-itinerario"></span>
+            </div>
+          </div>
+          <div class="span-2">
+            <button type="button" class="btn btn--contorno" id="btn-generar">✨ Generar itinerario sugerido</button>
+          </div>
+          <div class="span-2" id="itinerario-generado" hidden></div>
+          <div class="span-2">
+            <button type="submit" class="btn btn--primario" style="width:100%; justify-content:center; font-size:1.05rem">Enviar solicitud de reserva</button>
+            <p style="font-size:.8rem; color:var(--gris-500); margin-top:.6rem">Al enviar aceptas nuestro aviso de privacidad. No se realiza ningún cargo en este paso.</p>
+          </div>
+          <div class="span-2" id="confirmacion" hidden></div>
+        </form>
+
+        <aside class="panel-resumen" aria-live="polite">
+          <h3>Tu cotización estimada</h3>
+          <dl>
+            <div><dt>Tarifa base</dt><dd id="c-base">—</dd></div>
+            <div><dt>Personas</dt><dd id="c-personas">2</dd></div>
+            <div><dt>Extras</dt><dd id="c-extras">$0</dd></div>
+            <div><dt>Descuento grupo</dt><dd id="c-descuento">—</dd></div>
+            <div class="total"><dt>Total estimado</dt><dd id="c-total">$0 MXN</dd></div>
+          </dl>
+          <small>Incluye transporte privado, guía certificado, fotografía profesional y seguro de asistencia. Precio final confirmado por nuestro equipo.</small>
+          <hr style="border-color:rgba(255,255,255,.2); margin:1.2rem 0">
+          <p style="font-size:.85rem">¿Prefieres cotizar por WhatsApp?</p>
+          <a class="btn btn--oro btn--sm" id="wa-cotizar" href="https://wa.me/525500000000" target="_blank" rel="noopener" style="margin-top:.5rem">Enviar por WhatsApp</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="contenedor">
+    <div class="footer__grid">
+      <div>
+        <a class="marca" href="index.html"><img src="assets/logo.png" alt="" width="44" height="48"><span class="marca__nombre">ZANATE<span class="marca__sub">Experiencias CDMX</span></span></a>
+        <p style="margin-top:1rem">Turismo personalizado, seguro y memorable en la Ciudad de México.</p>
+      </div>
+      <div><h4>Explora</h4><a href="experiencias.html">Experiencias</a><a href="mapa.html">Mapa interactivo</a><a href="galeria.html">Galería</a><a href="blog.html">Blog</a></div>
+      <div><h4>Empresa</h4><a href="nosotros.html">Nosotros</a><a href="reservaciones.html">Reservaciones</a><a href="contacto.html">Contacto</a></div>
+      <div><h4>Contacto</h4><a href="https://wa.me/525500000000">WhatsApp: +52 55 0000 0000</a><a href="mailto:hola@zanatetours.mx">hola@zanatetours.mx</a></div>
+    </div>
+    <div class="footer__legal"><span>© <span data-anio>2026</span> Zanate Tours CDMX. <span data-i18n="footer.derechos">Todos los derechos reservados.</span></span></div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+(function () {
+  const PRECIOS = { medio: 2800, completo: 4500, multi: 4500 };
+  const form = document.getElementById("form-reserva");
+  const fmt = n => "$" + n.toLocaleString("es-MX") + " MXN";
+
+  // Fecha mínima: mañana
+  const fecha = document.getElementById("fecha");
+  const manana = new Date(Date.now() + 86400000);
+  fecha.min = manana.toISOString().split("T")[0];
+
+  // Poblar experiencias base + preselección desde ?exp=
+  const selExp = document.getElementById("experiencia");
+  ZANATE_EXPERIENCIAS.forEach(ex => {
+    const o = document.createElement("option");
+    o.value = ex.id; o.textContent = ex.nombre + " (" + ex.duracion + ")";
+    selExp.appendChild(o);
+  });
+  const param = new URLSearchParams(location.search).get("exp");
+  if (param) selExp.value = param;
+
+  // Mostrar sitios elegidos en el mapa
+  function pintarSitiosItinerario() {
+    const ids = ZANATE_ITINERARIO.obtener();
+    const zona = document.getElementById("zona-itinerario");
+    if (!ids.length) { zona.hidden = true; return; }
+    zona.hidden = false;
+    document.getElementById("sitios-itinerario").textContent =
+      ids.map(id => (ZANATE_SITIOS.find(s => s.id === id) || {}).nombre).filter(Boolean).join(" · ");
+  }
+  pintarSitiosItinerario();
+
+  // ---------- Calculadora en tiempo real ----------
+  function calcular() {
+    const personas = parseInt(document.getElementById("personas").value, 10);
+    const dur = document.getElementById("duracion").value;
+    const base = PRECIOS[dur];
+    let extrasPP = 0, extrasFijos = 0;
+    document.querySelectorAll(".extra:checked").forEach(e => {
+      const p = parseInt(e.dataset.precio, 10);
+      if (e.value === "foto-extendida") extrasFijos += p; else extrasPP += p;
+    });
+    // Descuento por grupo: 5% desde 4 personas, 10% desde 6
+    const desc = personas >= 6 ? 0.10 : personas >= 4 ? 0.05 : 0;
+    const subtotal = (base + extrasPP) * personas + extrasFijos;
+    const total = Math.round(subtotal * (1 - desc));
+
+    document.getElementById("c-base").textContent = fmt(base) + " p/p";
+    document.getElementById("c-personas").textContent = personas;
+    document.getElementById("c-extras").textContent = fmt(extrasPP * personas + extrasFijos);
+    document.getElementById("c-descuento").textContent = desc ? "−" + (desc * 100) + "%" : "—";
+    document.getElementById("c-total").textContent = fmt(total) + (dur === "multi" ? " / día" : "");
+
+    // Link de WhatsApp con resumen
+    const msg = "Hola, quiero cotizar: " + personas + " personas, " +
+      (dur === "medio" ? "medio día" : dur === "completo" ? "día completo" : "varios días") +
+      ", total estimado " + fmt(total) + ".";
+    document.getElementById("wa-cotizar").href = "https://wa.me/525500000000?text=" + encodeURIComponent(msg);
+    return total;
+  }
+  form.addEventListener("input", calcular);
+  calcular();
+
+  // ---------- Generador de itinerarios ----------
+  const MAPEO = {
+    historia: ["zocalo", "templo-mayor", "chapultepec"],
+    arte: ["bellas-artes", "antropologia", "coyoacan"],
+    gastronomia: ["coyoacan", "zocalo", "xochimilco"],
+    naturaleza: ["xochimilco", "chapultepec"],
+    arquitectura: ["bellas-artes", "revolucion", "angel"],
+    tradiciones: ["basilica", "xochimilco", "coyoacan"],
+    fotografia: ["angel", "revolucion", "bellas-artes"],
+    academico: ["antropologia", "templo-mayor", "chapultepec"]
+  };
+  document.getElementById("btn-generar").addEventListener("click", function () {
+    const marcados = [...document.querySelectorAll('#intereses input:checked')].map(i => i.value);
+    const delMapa = ZANATE_ITINERARIO.obtener();
+    const dur = document.getElementById("duracion").value;
+    const limite = dur === "medio" ? 3 : 5;
+
+    // Prioridad: sitios elegidos en el mapa, luego los derivados de intereses
+    const ids = [...delMapa];
+    (marcados.length ? marcados : ["historia", "arte"]).forEach(interes => {
+      (MAPEO[interes] || []).forEach(id => { if (!ids.includes(id)) ids.push(id); });
+    });
+    const ruta = ids.slice(0, limite).map(id => ZANATE_SITIOS.find(s => s.id === id)).filter(Boolean);
+
+    const horas = ["9:00", "11:00", "13:30", "15:30", "17:30"];
+    const zona = document.getElementById("itinerario-generado");
+    zona.hidden = false;
+    zona.innerHTML = '<div class="aviso-ok" style="background:var(--azul-050); border-color:var(--azul-100); color:var(--gris-700)">' +
+      '<strong style="color:var(--azul)">✨ Itinerario sugerido (' + (dur === "medio" ? "medio día" : "día completo") + '):</strong><ol style="margin:.6rem 0 0 1.2rem">' +
+      ruta.map((s, i) => "<li><strong>" + horas[i] + "</strong> — " + s.nombre + " <em style='color:var(--gris-500)'>(" + s.tip.split(";")[0].split(".")[0] + ")</em></li>").join("") +
+      "</ol><p style='margin-top:.6rem; font-size:.85rem'>Incluye traslados en van ejecutiva entre cada punto y paradas fotográficas. Nuestro equipo lo afinará contigo antes de confirmar.</p></div>";
+    zona.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  });
+
+  // ---------- Envío (demo: guarda localmente) ----------
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    const datos = Object.fromEntries(new FormData(form).entries());
+    datos.intereses = [...document.querySelectorAll('#intereses input:checked')].map(i => i.value).join(", ");
+    datos.extras = [...document.querySelectorAll('.extra:checked')].map(i => i.value).join(", ");
+    datos.sitios_mapa = ZANATE_ITINERARIO.obtener().join(", ");
+    datos.total_estimado = document.getElementById("c-total").textContent;
+    ZANATE_GUARDAR("reservas", datos);
+    ZANATE_ITINERARIO.limpiar();
+
+    const conf = document.getElementById("confirmacion");
+    conf.hidden = false;
+    conf.innerHTML = '<div class="aviso-ok">✅ <strong>¡Solicitud recibida!</strong> Te contactaremos en menos de 12 horas por WhatsApp o correo con tu itinerario propuesto y cotización final. <br><small>Folio: HZ-' + Date.now().toString().slice(-6) + "</small></div>";
+    form.reset(); calcular(); pintarSitiosItinerario();
+    conf.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  });
+})();
+</script>
+</body>
+</html>
