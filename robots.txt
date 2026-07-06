@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin.html
 
-Sitemap: https://www.zanatetours.mx/sitemap.xml
+Sitemap: https://zanate-tours.vercel.app/sitemap.xml
